@@ -5,17 +5,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-import br.com.fourstore.model.Produto;
-import br.com.fourstore.service.ProdutoService;
+import br.com.fourstore.model.Product;
+import br.com.fourstore.service.ProductService;
 
 public class MenuController {
 
 	private Scanner scanner = new Scanner(System.in);
 
-	ProdutoService productService = new ProdutoService();
+	ProductService productService = new ProductService();
 
 	public MenuController(String opcao) {
-		System.out.println("Programa foi inicializado pela " + opcao + "Âª opÃ§Ã£o");
+		System.out.println("Programa foi inicializado pela " + opcao + "ª opção.");
 		inicializeMenu();
 	}
 
@@ -34,6 +34,9 @@ public class MenuController {
 				continue;
 			case 3:
 				findAllProdutos();
+				continue;
+			case 4:
+				sellProduct();
 				continue;
 
 			default:
@@ -82,7 +85,7 @@ public class MenuController {
 		String categoria = readString("Informe a categoria: ");
 		String departamento = readString("Informe o departamento: ");
 
-		Produto product = new Produto(sku, nome, preco, tamanho, cor, quantidade, tipo, descricao, categoria,
+		Product product = new Product(sku, nome, preco, tamanho, cor, quantidade, tipo, descricao, categoria,
 				departamento);
 
 		productService.create(product);
@@ -95,9 +98,9 @@ public class MenuController {
 		return retorno;
 	}
 
-	public List<Produto> findAllProdutos() {
-		List<Produto> estoqueList = productService.readAll();
-		for (Produto produto : estoqueList) {
+	public List<Product> findAllProdutos() {
+		List<Product> estoqueList = productService.readAll();
+		for (Product produto : estoqueList) {
 			System.out.println(produto);
 		}
 		return productService.readAll();
@@ -107,7 +110,7 @@ public class MenuController {
 		System.out.println("Informe o sku do produto a ser alterado: ");
 		Integer sku = scanner.nextInt();
 		scanner.nextLine();
-		Produto produtoASerAlterado = productService.readBySku(sku);
+		Product produtoASerAlterado = productService.readBySku(sku);
 		System.out.println("Informe a quantidade do produto a ser alterado: ");
 		Integer quantidade = (produtoASerAlterado.getQuantidade() + scanner.nextInt());
 		scanner.nextLine();
@@ -122,7 +125,7 @@ public class MenuController {
 	 */
 	private void sellProduct() {
 
-		Map<Produto, Integer> cart = new HashMap<>();
+		Map<Product, Integer> cart = new HashMap<>();
 
 		Integer option = 1;
 
@@ -229,6 +232,20 @@ public class MenuController {
 		default:
 			break;
 		}
+		Integer cpf;
+		System.out.println("Deseja CPF na nota? 1 - Sim / 2 - Não");
+		option = scanner.nextInt();
+			if (option == 1) {
+				System.out.println("Informe o CPF: ");
+				cpf = scanner.nextInt();
+			}
+			
+			printReceipt();
 
+	}
+
+	private void printReceipt() {
+		
+		
 	}
 }
