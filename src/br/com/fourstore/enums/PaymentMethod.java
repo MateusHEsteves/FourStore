@@ -2,19 +2,15 @@ package br.com.fourstore.enums;
 
 public enum PaymentMethod {
 	
-	MONEY(1, "Dinheiro"), DEBIT(2, "DÈbito"), CREDIT(3, "CrÈdito"), PIX(4, "Pix");
+	MONEY("Pagamento no dinheiro realizado com sucesso!"), 
+	DEBIT("Pagamento no d√©bito realizado com sucesso!"), 
+	CREDIT("Pagamento no cr√©dito realizado com sucesso!"), 
+	PIX("Pagamento no PIX realizado com sucesso!");
 
-	private Integer id;
-	
 	private String description;
 	
-	PaymentMethod(Integer id, String description) {
-		this.id = (id);
-		this.description = (description);
-	}
-
-	public Integer getId() {
-		return id;
+	PaymentMethod(String description) {
+		this.description = description;
 	}
 
 	public String getDescription() {

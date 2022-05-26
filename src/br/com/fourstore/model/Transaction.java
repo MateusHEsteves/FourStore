@@ -13,6 +13,7 @@ public class Transaction {
 	
 	LocalDate dataDeTransacao;
 	
+	
 	Map<Product, Integer> produto;
 	
 	

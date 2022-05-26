@@ -16,6 +16,26 @@ public class ProductService {
 	public List<Product> readAll() {
 		return db.findAll();
 	}
+	
+	public Integer stockChange(Integer sku, Integer quantidade) {
+		
+		Product produto = db.findBySku(sku);
+		
+		if (produto == null) {
+			return null;
+		}
+		
+		if (produto.getQuantidade() + quantidade < 0) {
+			return null;
+		}
+		
+		produto.setQuantidade(produto.getQuantidade() + quantidade);
+		
+		db.update(produto);
+		
+		return produto.getQuantidade();
+		
+	}
 
 	public Product readBySku(Integer sku) {
 		return db.findBySku(sku);		
