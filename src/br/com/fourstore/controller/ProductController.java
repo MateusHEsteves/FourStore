@@ -18,19 +18,17 @@ public class ProductController {
 	 */
 	public void cadastrarProduto() {
 
-		Integer SKU = Util.readInteger("Informe o Sku: ");
-		String nome = Util.readString("Informe o nome: ");
-		Double preco = Util.readDouble("Informe o preço: ");
-		String tamanho = Util.readString("Informe o tamanho: ");
-		String cor = Util.readString("Informe a cor: ");
-		Integer quantidade = Util.readInteger("Informe a quantidade: ");
-		String tipo = Util.readString("Informe o tipo: ");
-		String descricao = Util.readString("Informe a descrição: ");
-		String categoria = Util.readString("Informe a categoria: ");
-		String departamento = Util.readString("Informe o departamento: ");
+		String name = Util.readString("Informe o nome: ");
+		Double price = Util.readDouble("Informe o preço: ");
+		String size = Util.readString("Informe o tamanho: ");
+		String color = Util.readString("Informe a cor: ");
+		Integer quantity = Util.readInteger("Informe a quantidade: ");
+		String type = Util.readString("Informe o tipo: ");
+		String description = Util.readString("Informe a descrição: ");
+		String category = Util.readString("Informe a categoria: ");
+		String department = Util.readString("Informe o departamento: ");
 
-		Product product = new Product(SKU, nome, preco, tamanho, cor, quantidade, tipo, descricao, categoria,
-				departamento);
+		Product product = new Product(name, price, size, color, quantity, type, description, category,	department);
 
 		productService.create(product);
 

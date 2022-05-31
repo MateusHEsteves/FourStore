@@ -4,14 +4,14 @@ public class Product {
 	
 	Integer sku;
 	String name;
-	Double preco;
-	String tamanho;
-	String cor;
-	Integer quantidade;
-	String tipo;
-	String descricao;
-	String categoria;
-	String departamento;
+	Double price;
+	String syze;
+	String color;
+	Integer quantity;
+	String type;
+	String description;
+	String category;
+	String department;
 	
 	
 	/**
@@ -27,18 +27,21 @@ public class Product {
 	 * @param categoria do produto a ser imputado no estoque
 	 * @param departamento do produto a ser imputado no estoque
 	 */
-	public Product(Integer sku, String name, Double preco, String tamanho, String cor, Integer quantidade, String tipo,
+	public Product(String name, Double preco, String tamanho, String cor, Integer quantidade, String tipo,
 			String descricao, String categoria, String departamento) {
-		this.sku = sku;
+		
+		//TODO refatorar código para gerar SKU automático
+		
+		this.sku = 0;
 		this.name = name;
-		this.preco = preco;
-		this.tamanho = tamanho;
-		this.cor = cor;
-		this.quantidade = quantidade;
-		this.tipo = tipo;
-		this.descricao = descricao;
-		this.categoria = categoria;
-		this.departamento = departamento;
+		this.price = preco;
+		this.syze = tamanho;
+		this.color = cor;
+		this.quantity = quantidade;
+		this.type = tipo;
+		this.description = descricao;
+		this.category = categoria;
+		this.department = departamento;
 	}
 	
 	public String getNome() {
@@ -48,40 +51,40 @@ public class Product {
 		this.name = name;
 	}
 	public String getDescricao() {
-		return descricao;
+		return description;
 	}
 	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+		this.description = descricao;
 	}
 	public String getTipo() {
-		return tipo;
+		return type;
 	}
 	public void setTipo(String tipo) {
-		this.tipo = tipo;
+		this.type = tipo;
 	}
 	public String getTamanho() {
-		return tamanho;
+		return syze;
 	}
 	public void setTamanho(String tamanho) {
-		this.tamanho = tamanho;
+		this.syze = tamanho;
 	}
 	public String getCor() {
-		return cor;
+		return color;
 	}
 	public void setCor(String cor) {
-		this.cor = cor;
+		this.color = cor;
 	}
 	public String getCategoria() {
-		return categoria;
+		return category;
 	}
 	public void setCategoria(String categoria) {
-		this.categoria = categoria;
+		this.category = categoria;
 	}
 	public String getDepartamento() {
-		return departamento;
+		return department;
 	}
 	public void setDepartamento(String departamento) {
-		this.departamento = departamento;
+		this.department = departamento;
 	}
 	public Integer getSku() {
 		return sku;
@@ -90,23 +93,23 @@ public class Product {
 		this.sku = sku;
 	}
 	public Integer getQuantidade() {
-		return quantidade;
+		return quantity;
 	}
 	public void setQuantidade(Integer quantidade) {
-		this.quantidade = quantidade;
+		this.quantity = quantidade;
 	}
 	public Double getPreco() {
-		return preco;
+		return price;
 	}
 	public void setPreco(Double preco) {
-		this.preco = preco;
+		this.price = preco;
 	}
 
 	@Override
 	public String toString() {
-		return "Produto [sku=" + sku + ", name=" + name + ", preco=" + preco + ", tamanho=" + tamanho + ", cor=" + cor
-				+ ", quantidade=" + quantidade + ", tipo=" + tipo + ", descricao=" + descricao + ", categoria="
-				+ categoria + ", departamento=" + departamento + "]";
+		return "Produto [sku=" + sku + ", name=" + name + ", preco=" + price + ", tamanho=" + syze + ", cor=" + color
+				+ ", quantidade=" + quantity + ", tipo=" + type + ", descricao=" + description + ", categoria="
+				+ category + ", departamento=" + department + "]";
 	}
 	
 
