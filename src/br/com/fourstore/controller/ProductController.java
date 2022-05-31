@@ -44,7 +44,7 @@ public class ProductController {
 			System.out.println(produto);
 		}
 		
-		return productService.readAll();
+		return estoqueList;
 		
 	}
 
@@ -54,9 +54,9 @@ public class ProductController {
 		
 		Integer quantidade = Util.readInteger("Informe a quantidade do produto a ser alterado: ");
 		
-		productService.stockChange(SKU, quantidade);
+		Integer qtdEmEstoque = productService.stockChange(SKU, quantidade);
 		
-		System.out.println("Produto atualizado com sucesso! ");
+		System.out.println("Produto atualizado com sucesso!  O nosso estoque agora tem " +  qtdEmEstoque + " peças do produto.");
 		
 	}
 

@@ -16,10 +16,10 @@ public class Product {
 	
 	/**
 	 * 
-	 * @param sku é o stock keeping unit que recebe o valor imputado pelo usuário para verificar no estoque 
+	 * @param sku Ã© o stock keeping unit que recebe o valor imputado pelo usuï¿½rio para verificar no estoque 
 	 * @param name recebe o nome do produto imputado pelo usuario
-	 * @param preco o valor produto que será imputado no estoque
-	 * @param tamanho o tamanho do produto que será imputado no estoque
+	 * @param preco o valor produto que serï¿½ imputado no estoque
+	 * @param tamanho o tamanho do produto que serï¿½ imputado no estoque
 	 * @param cor imputa a caro do produto a ser imputado no estoque
 	 * @param quantidade o tanto de produtos a ser imputado no estoque
 	 * @param tipo qual o produto a ser imputado no estoque

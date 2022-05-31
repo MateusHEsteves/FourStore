@@ -5,14 +5,16 @@ import java.util.List;
 
 import br.com.fourstore.model.Product;
 
-public class ProductData {
+public class ProductData implements DaoInterface<Product> {
 
 	List<Product> estoqueDeProdutos = new ArrayList<>();
 
+	@Override
 	public void save(Product produto) {
 		estoqueDeProdutos.add(produto);
 	}
 
+	@Override
 	public List<Product> findAll() {
 		return estoqueDeProdutos;
 	}
@@ -30,11 +32,13 @@ public class ProductData {
 		return estoqueDeProdutos.indexOf(produto);
 	}
 
+	@Override
 	public void update(Product produto) {
 		delete(produto);
 		save(produto);
 	}
 
+	@Override
 	public void delete(Product produto) {
 		estoqueDeProdutos.remove(getIndexOfProduto(produto));
 	}
@@ -51,4 +55,6 @@ public class ProductData {
 		}
 		return null;
 	}
+
+	
 }

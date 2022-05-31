@@ -23,7 +23,6 @@ public class MenuController {
 			case 1:
 				productController.cadastrarProduto();
 				continue;
-
 			case 2:
 				productController.updateEstoque();
 				continue;
