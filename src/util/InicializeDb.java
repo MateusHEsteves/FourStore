@@ -20,35 +20,38 @@ public class InicializeDb {
 		
 		ProductData db = new ProductData();
 		
-		Product product1 = new Product("Moletom", 100.00, Size.G00, ColorsProduct.GREEN, 50, TypeProduct.WINTER,
+		Product product1 = new Product("Moletom", 100.00, Size.GG0, ColorsProduct.GREEN, 50, TypeProduct.WINTER,
 				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
-		Product product2 = new Product("Calça", 30.00, "G", "Jeans", 30, "Verão", null, "Feminino",
-				"Vestuário");
+		Product product2 = new Product("Calça", 100.00, Size.G00, ColorsProduct.BROWN, 30, TypeProduct.SUMMER,
+				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
-		Product product3 = new Product("Cueca/Calcinha", 20.00, "G", "Branco", 20, "Verão", null, "Unissex",
-				"Vestuário");
+		Product product3 = new Product("Cueca", 20.00, Size.G00, ColorsProduct.WHITE, 20, TypeProduct.SUMMER,
+				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
-		Product product4 = new Product("Meia", 10.00, "P", "Preta", 10, "Verão", null, "Unissex",
-				"Vestuário");
+		Product product4 = new Product("Meia", 10.00, Size.P00, ColorsProduct.BLACK, 10, TypeProduct.SUMMER,
+				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
-		Product product5 = new Product("Blusa", 40.00, "M", "Azul", 40, "Verão", null, "Masculino",
-				"Vestuário");
+		Product product5 = new Product("Blusa", 40.00, Size.M00, ColorsProduct.BLUE, 40, TypeProduct.SUMMER,
+				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
-		Product product6 = new Product("Blusa", 60.00, "P", "Vermelho", 60, "Verão", null, "Feminino",
-				"Vestuário");
+		Product product6 = new Product("Blusa", 40.00, Size.P00, ColorsProduct.RED, 60, TypeProduct.SUMMER,
+				"Moletom com estampa do capitão américa", CategoryProduct.FEMININE, DepartmentEnum.CLOTHES);
+
+		Product product7 = new Product("Calça Moletom", 80.00, Size.G00, ColorsProduct.BLACK, 80, TypeProduct.WINTER,
+				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
-		Product product7 = new Product("Calça Moletom", 80.00, "G", "Preta", 80, "Inverno", null, "Unissex",
-				"Vestuário");
+		Product product8 = new Product("Camisa Social", 90.00, Size.M00, ColorsProduct.WHITE, 90, TypeProduct.SUMMER,
+				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
-		Product product8 = new Product("Camisa Social", 90.00, "M", "Branca", 90, "Verão", null, "Masculino",
-				"Vestuário");
+		Product product9 = new Product("Camisa Social", 70.00, Size.P00, ColorsProduct.WHITE, 70, TypeProduct.SUMMER,
+				"Moletom com estampa do capitão américa", CategoryProduct.FEMININE, DepartmentEnum.CLOTHES);
 		
-		Product product9 = new Product("Camisa Social", 70.00, "P", "Branca", 70, "Verão", null, "Feminino",
-				"Vestuário");
+		Product product10 = new Product("Bermuda", 50.00, Size.GG0, ColorsProduct.BLACK, 10, TypeProduct.SUMMER,
+				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
-		Product product10 = new Product("Bermuda", 50.00, "GG", "Preta", 100, "Verão", null, "Masculino",
-				"Vestuário");
+		Product product11 = new Product("Macacão", 75.00, Size.RN0, ColorsProduct.GRAY, 55, TypeProduct.SUMMER,
+				"Moletom com estampa do capitão américa", CategoryProduct.BABY, DepartmentEnum.CLOTHES);
 		
 		db.save(product1);
 		db.save(product2);
@@ -60,7 +63,7 @@ public class InicializeDb {
 		db.save(product8);
 		db.save(product9);
 		db.save(product10);
-		
+		db.save(product11);
 	}
 
 }
