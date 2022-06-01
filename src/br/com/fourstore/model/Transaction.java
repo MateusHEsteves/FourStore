@@ -1,6 +1,7 @@
 package br.com.fourstore.model;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.Map;
 
 import br.com.fourstore.enums.PaymentMethod;
@@ -14,7 +15,7 @@ public class Transaction {
 	LocalDate dataDeTransacao;
 	
 	
-	Map<Product, Integer> produto;
+	Map<Product, Integer> shoppingCart = new HashMap<>();
 	
 	
 	public Long getId() {

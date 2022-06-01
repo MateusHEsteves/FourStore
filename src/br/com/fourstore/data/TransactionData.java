@@ -7,7 +7,7 @@ import br.com.fourstore.model.Transaction;
 
 public class TransactionData implements DaoInterface<Transaction>{
 	
-	List<Transaction> transactionsList = new ArrayList<>();
+	static List<Transaction> transactionsList = new ArrayList<>();
 
 	@Override
 	public void save(Transaction transaction) {
@@ -17,6 +17,10 @@ public class TransactionData implements DaoInterface<Transaction>{
 	@Override
 	public List<Transaction> findAll() {
 		return transactionsList;
+	}
+	
+	public List<Transaction> findById(Long id) {
+		return transactionsList.stream().filter(tr -> tr.getId() == id).toList();
 	}
 
 	public int getIndexOfTransaction(Transaction transaction) {

@@ -5,7 +5,7 @@ public class Product {
 	Integer sku;
 	String name;
 	Double price;
-	String syze;
+	String size;
 	String color;
 	Integer quantity;
 	String type;
@@ -35,7 +35,7 @@ public class Product {
 		this.sku = 0;
 		this.name = name;
 		this.price = preco;
-		this.syze = tamanho;
+		this.size = tamanho;
 		this.color = cor;
 		this.quantity = quantidade;
 		this.type = tipo;
@@ -63,10 +63,10 @@ public class Product {
 		this.type = tipo;
 	}
 	public String getTamanho() {
-		return syze;
+		return size;
 	}
 	public void setTamanho(String tamanho) {
-		this.syze = tamanho;
+		this.size = tamanho;
 	}
 	public String getCor() {
 		return color;
@@ -107,7 +107,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Produto [sku=" + sku + ", name=" + name + ", preco=" + price + ", tamanho=" + syze + ", cor=" + color
+		return "Produto [sku=" + sku + ", name=" + name + ", preco=" + price + ", tamanho=" + size + ", cor=" + color
 				+ ", quantidade=" + quantity + ", tipo=" + type + ", descricao=" + description + ", categoria="
 				+ category + ", departamento=" + department + "]";
 	}

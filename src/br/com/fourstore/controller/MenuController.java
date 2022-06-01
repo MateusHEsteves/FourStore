@@ -1,21 +1,31 @@
 package br.com.fourstore.controller;
 
+import util.InicializeDb;
 import util.Util;
 
+/**
+ * @author mesteves
+ *
+ */
 public class MenuController {
 
 	ProductController productController = new ProductController();
 	
 	TransactionController transactionController = new TransactionController();
 
+	InicializeDb startDb = new InicializeDb();
+
 	public MenuController(String opcao) {
 		System.out.println("Programa foi inicializado pela " + opcao + "ª opção.");
 		inicializeMenu();
 	}
 
+	/**
+	 * 
+	 */
 	private void inicializeMenu() {
 		
-		while (true) {
+		menu: while (true) {
 
 			Integer opcao = menuPrincipal();
 
@@ -35,7 +45,7 @@ public class MenuController {
 			case 5:
 				productController.showHistory();
 			default:
-				break;
+				break menu;
 			}
 		}
 	}
@@ -44,7 +54,7 @@ public class MenuController {
 	 * Exibe um menu no console e solicita uma entrada do tipo inteiro usando o
 	 * Scanner e retorna essa entrada.
 	 * 
-	 * @return Integer inputado pelo usuÃ¡rio do sistema.
+	 * @return Integer inputado pelo usuário do sistema.
 	 */
 	public Integer menuPrincipal() {
 		System.out.println("╔══════════════════════════════════════════╗");

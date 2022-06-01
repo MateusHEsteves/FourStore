@@ -7,7 +7,7 @@ import br.com.fourstore.model.Product;
 
 public class ProductData implements DaoInterface<Product> {
 
-	List<Product> estoqueDeProdutos = new ArrayList<>();
+	static List<Product> estoqueDeProdutos = new ArrayList<>();
 
 	@Override
 	public void save(Product produto) {

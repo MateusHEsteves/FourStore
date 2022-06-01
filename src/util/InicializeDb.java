@@ -1,24 +1,23 @@
 package util;
 
+import br.com.fourstore.data.ProductData;
 import br.com.fourstore.model.Product;
 
 public class InicializeDb {
 	
-	public void inicializeDb() {
+	
+	
+	public InicializeDb() {
+		inicializeDB();
+	}
+
+	public static void inicializeDB() {
 		
-		String name;
-		Double price;
-		String size;
-		String color;
-		Integer quantity;
-		String type;
-		String description;
-		String category;
-		String department;
-		
+		ProductData db = new ProductData();
 		
 		Product product1 = new Product("Moletom", 100.00, "GG", "Verde", 50, "Inverno", null, "Masculino",
 				"Vestuário");
+		
 		
 		Product product2 = new Product("Calça", 30.00, "G", "Jeans", 30, "Verão", null, "Feminino",
 				"Vestuário");
@@ -47,6 +46,16 @@ public class InicializeDb {
 		Product product10 = new Product("Bermuda", 50.00, "GG", "Preta", 100, "Verão", null, "Masculino",
 				"Vestuário");
 		
+		db.save(product1);
+		db.save(product2);
+		db.save(product3);
+		db.save(product4);
+		db.save(product5);
+		db.save(product6);
+		db.save(product7);
+		db.save(product8);
+		db.save(product9);
+		db.save(product10);
 		
 	}
 
