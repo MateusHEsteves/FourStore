@@ -9,7 +9,11 @@ import util.Util;
 
 public class TransactionService {
 
-	TransactionData db = new TransactionData();
+	TransactionData db;
+
+	public TransactionService() {
+		this.db = new TransactionData();
+	}
 
 	public void create(Transaction transaction) {
 		db.save(transaction);

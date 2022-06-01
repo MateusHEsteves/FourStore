@@ -1,6 +1,11 @@
 package util;
 
 import br.com.fourstore.data.ProductData;
+import br.com.fourstore.enums.CategoryProduct;
+import br.com.fourstore.enums.ColorsProduct;
+import br.com.fourstore.enums.DepartmentEnum;
+import br.com.fourstore.enums.Size;
+import br.com.fourstore.enums.TypeProduct;
 import br.com.fourstore.model.Product;
 
 public class InicializeDb {
@@ -15,9 +20,8 @@ public class InicializeDb {
 		
 		ProductData db = new ProductData();
 		
-		Product product1 = new Product("Moletom", 100.00, "GG", "Verde", 50, "Inverno", null, "Masculino",
-				"Vestuário");
-		
+		Product product1 = new Product("Moletom", 100.00, Size.G00, ColorsProduct.GREEN, 50, TypeProduct.WINTER,
+				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
 		Product product2 = new Product("Calça", 30.00, "G", "Jeans", 30, "Verão", null, "Feminino",
 				"Vestuário");

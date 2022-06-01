@@ -6,7 +6,11 @@ import java.util.Map;
 
 public class ShoppingCart {
 
-	Map<Product, Integer> cart = new HashMap<>();
+	private Map<Product, Integer> cart;
+
+	public ShoppingCart() {
+		this.cart = new HashMap<>();
+	}
 
 	public void listProduct() {
 		
@@ -15,7 +19,7 @@ public class ShoppingCart {
 			Product product = productList.getKey();
 			Integer quantity = productList.getValue();
 
-			System.out.println(product.getNome() + ", Quantidade " + quantity + ", valor" + product.getPreco());
+			System.out.println(product.getName() + ", Quantidade " + quantity + ", valor" + product.getPrice());
 		}
 		
 		System.out.println("Subtotal: " + subTotalValue());
@@ -31,7 +35,7 @@ public class ShoppingCart {
 			Product product = productList.getKey();
 			Integer quantity = productList.getValue();
 			
-			subTotal.add(new BigDecimal(product.getPreco() * quantity));
+			subTotal.add(new BigDecimal(product.getPrice() * quantity));
 		}
 		
 		return subTotal;

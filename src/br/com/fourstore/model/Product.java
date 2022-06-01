@@ -1,17 +1,24 @@
 package br.com.fourstore.model;
 
+import br.com.fourstore.enums.CategoryProduct;
+import br.com.fourstore.enums.ColorsProduct;
+import br.com.fourstore.enums.DepartmentEnum;
+import br.com.fourstore.enums.Size;
+import br.com.fourstore.enums.TypeProduct;
+
 public class Product {
 	
-	Integer sku;
-	String name;
-	Double price;
-	String size;
-	String color;
-	Integer quantity;
-	String type;
-	String description;
-	String category;
-	String department;
+	private String sku;
+	private String name;
+	private Double price;
+	private Size size;
+	private ColorsProduct color;
+	private Integer quantity;
+	private TypeProduct type;
+	private String description;
+	private CategoryProduct category;
+	private DepartmentEnum department;
+	
 	
 	
 	/**
@@ -27,89 +34,126 @@ public class Product {
 	 * @param categoria do produto a ser imputado no estoque
 	 * @param departamento do produto a ser imputado no estoque
 	 */
-	public Product(String name, Double preco, String tamanho, String cor, Integer quantidade, String tipo,
-			String descricao, String categoria, String departamento) {
+	public Product(String name, Double price, Size size, ColorsProduct color, Integer quantity, TypeProduct type,
+			String description, CategoryProduct category, DepartmentEnum department) {
 		
-		//TODO refatorar código para gerar SKU automático
-		
-		this.sku = 0;
+		this.sku = department.getSKUCode() + category.getSKUCode() + type.getSKUCode() + size.getSKUCode() + color.getSKUCode();
 		this.name = name;
-		this.price = preco;
-		this.size = tamanho;
-		this.color = cor;
-		this.quantity = quantidade;
-		this.type = tipo;
-		this.description = descricao;
-		this.category = categoria;
-		this.department = departamento;
+		this.price = price;
+		this.size = size;
+		this.color = color;
+		this.quantity = quantity;
+		this.type = type;
+		this.description = description;
+		this.category = category;
+		this.department = department;
 	}
 	
-	public String getNome() {
-		return name;
-	}
-	public void setNome(String name) {
-		this.name = name;
-	}
-	public String getDescricao() {
-		return description;
-	}
-	public void setDescricao(String descricao) {
-		this.description = descricao;
-	}
-	public String getTipo() {
-		return type;
-	}
-	public void setTipo(String tipo) {
-		this.type = tipo;
-	}
-	public String getTamanho() {
-		return size;
-	}
-	public void setTamanho(String tamanho) {
-		this.size = tamanho;
-	}
-	public String getCor() {
-		return color;
-	}
-	public void setCor(String cor) {
-		this.color = cor;
-	}
-	public String getCategoria() {
-		return category;
-	}
-	public void setCategoria(String categoria) {
-		this.category = categoria;
-	}
-	public String getDepartamento() {
-		return department;
-	}
-	public void setDepartamento(String departamento) {
-		this.department = departamento;
-	}
-	public Integer getSku() {
+	public String getSku() {
 		return sku;
 	}
-	public void setSku(Integer sku) {
+
+
+	public void setSku(String sku) {
 		this.sku = sku;
 	}
-	public Integer getQuantidade() {
-		return quantity;
+
+
+	public String getName() {
+		return name;
 	}
-	public void setQuantidade(Integer quantidade) {
-		this.quantity = quantidade;
+
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public Double getPreco() {
+
+
+	public Double getPrice() {
 		return price;
 	}
-	public void setPreco(Double preco) {
-		this.price = preco;
+
+
+	public void setPrice(Double price) {
+		this.price = price;
 	}
+
+
+	public Size getSize() {
+		return size;
+	}
+
+
+	public void setSize(Size size) {
+		this.size = size;
+	}
+
+
+	public ColorsProduct getColor() {
+		return color;
+	}
+
+
+	public void setColor(ColorsProduct color) {
+		this.color = color;
+	}
+
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
+
+	public TypeProduct getType() {
+		return type;
+	}
+
+
+	public void setType(TypeProduct type) {
+		this.type = type;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+	public CategoryProduct getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(CategoryProduct category) {
+		this.category = category;
+	}
+
+
+	public DepartmentEnum getDepartment() {
+		return department;
+	}
+
+
+	public void setDepartment(DepartmentEnum department) {
+		this.department = department;
+	}
+
 
 	@Override
 	public String toString() {
-		return "Produto [sku=" + sku + ", name=" + name + ", preco=" + price + ", tamanho=" + size + ", cor=" + color
-				+ ", quantidade=" + quantity + ", tipo=" + type + ", descricao=" + description + ", categoria="
-				+ category + ", departamento=" + department + "]";
+		return "Produto [sku=" + sku + ", name=" + name + ", preco=" + price + ", tamanho=" + size.getDescription() + ", cor=" + color.getDescription()
+				+ ", quantidade=" + quantity + ", tipo=" + type.getDescription() + ", descricao=" + description + ", categoria="
+				+ category.getDescription() + ", departamento=" + department.getDescription() + "]";
 	}
 	
 

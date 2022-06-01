@@ -7,8 +7,12 @@ import br.com.fourstore.model.Product;
 
 public class ProductService {
 	
-	ProductData db = new ProductData();
+	ProductData db;
 	
+	public ProductService() {
+		this.db =  new ProductData();
+	}
+
 	public void create(Product product) {
 		db.save(product);
 	}
@@ -25,15 +29,15 @@ public class ProductService {
 			return null;
 		}
 		
-		if (produto.getQuantidade() + quantidade < 0) {
+		if (produto.getQuantity() + quantidade < 0) {
 			return null;
 		}
 		
-		produto.setQuantidade(produto.getQuantidade() + quantidade);
+		produto.setQuantity(produto.getQuantity() + quantidade);
 		
 		db.update(produto);
 		
-		return produto.getQuantidade();
+		return produto.getQuantity();
 		
 	}
 

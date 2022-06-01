@@ -6,14 +6,14 @@ import br.com.fourstore.enums.PaymentMethod;
 
 public class Transaction {
 	
-	Long id;
+	private Long id;
+	private PaymentMethod metodoDePagamento;
+	private LocalDate dataDeTransacao;
+	private ShoppingCart shoppingCart;
 	
-	PaymentMethod metodoDePagamento;
-	
-	LocalDate dataDeTransacao;
-	
-	ShoppingCart shoppingCart = new ShoppingCart();
-	
+	public Transaction() {
+		this.shoppingCart = new ShoppingCart();
+	}
 	public Long getId() {
 		return id;
 	}
