@@ -31,10 +31,10 @@ public class MenuController {
 
 			switch (opcao) {
 			case 1:
-				productController.cadastrarProduto();
+				productController.registerProduct();
 				continue;
 			case 2:
-				productController.updateEstoque();
+				productController.updateStock();
 				continue;
 			case 3:
 				productController.findAllProdutos();

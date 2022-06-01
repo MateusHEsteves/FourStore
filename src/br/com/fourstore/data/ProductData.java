@@ -5,50 +5,88 @@ import java.util.List;
 
 import br.com.fourstore.model.Product;
 
+	/**
+	 * 
+	 * @author mesteves
+	 *
+	 */
 public class ProductData implements DaoInterface<Product> {
-
-	static List<Product> estoqueDeProdutos = new ArrayList<>();
-
+	
+	/**
+	 * 
+	 */
+	static List<Product> stockProduct = new ArrayList<>();
+	
+	/**
+	 * 
+	 */
 	@Override
-	public void save(Product produto) {
-		estoqueDeProdutos.add(produto);
+	public void save(Product product) {
+		stockProduct.add(product);
 	}
-
+	
+	/**
+	 * 
+	 */
 	@Override
 	public List<Product> findAll() {
-		return estoqueDeProdutos;
+		return stockProduct;
 	}
-
+	
+	/**
+	 * 
+	 * @param sku
+	 * @return
+	 */
 	public Product findBySku(Integer sku) {
-		for (Product produto : estoqueDeProdutos) {
-			if (produto.getSku() == sku) {
-				return produto;
+		for (Product product : stockProduct) {
+			if (product.getSku() == sku) {
+				return product;
 			}
 		}
 		return null;
 	}
-
-	public int getIndexOfProduto(Product produto) {
-		return estoqueDeProdutos.indexOf(produto);
+	
+	/**
+	 * 
+	 * @param product
+	 * @return
+	 */
+	public int getIndexOfProduto(Product product) {
+		return stockProduct.indexOf(product);
 	}
-
+	
+	/**
+	 * 
+	 */
 	@Override
-	public void update(Product produto) {
-		delete(produto);
-		save(produto);
+	public void update(Product product) {
+		delete(product);
+		save(product);
 	}
-
+	
+	/**
+	 * 
+	 */
 	@Override
-	public void delete(Product produto) {
-		estoqueDeProdutos.remove(getIndexOfProduto(produto));
+	public void delete(Product product) {
+		stockProduct.remove(getIndexOfProduto(product));
 	}
 
+	/**
+	 * 
+	 * @param sku
+	 */
 	public void deleteBySku(Integer sku) {
-		estoqueDeProdutos.remove(getProdutoBySku(sku));
+		stockProduct.remove(getProdutoBySku(sku));
 	}
-
+	/**
+	 * 
+	 * @param sku
+	 * @return
+	 */
 	private Product getProdutoBySku(Integer sku) {
-		for (Product produto : estoqueDeProdutos) {
+		for (Product produto : stockProduct) {
 			if (produto.getSku() == sku) {
 				return produto;
 			}

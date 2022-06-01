@@ -2,20 +2,28 @@ package br.com.fourstore.enums;
 
 public enum ColorsProduct {
 	
-	BLUE("azul"),
-	RED("vermelho"),
-	GREEN("verde"),
-	WHITE("branco"),
-	BLACK("preto"),
-	YELLOW("amarelo"),
-	BROWN("marron"),
-	GRAY("cinza");
+	BLUE("azul", "BLU"),
+	RED("vermelho", "RED"),
+	GREEN("verde", "GRE"),
+	WHITE("branco", "WHI"),
+	BLACK("preto", "BLA"),
+	YELLOW("amarelo", "YEL"),
+	BROWN("marron", "BRO"),
+	GRAY("cinza", "GRA");
 	
-	private String description;
-
-	private ColorsProduct(String description) {
-		this.description = description;
+	public String getSKUCode() {
+		return SKUCode;
 	}
+
+
+	private String description;
+	private String SKUCode;
+
+	private ColorsProduct(String description, String SKUCode) {
+		this.description = description;
+		this.SKUCode = SKUCode;
+	}
+	
 	
 	public String getDescription() {
 		return description;

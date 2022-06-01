@@ -16,7 +16,7 @@ public class ProductController {
 	/**
 	 * Cadastra um novo produto
 	 */
-	public void cadastrarProduto() {
+	public void registerProduct() {
 
 		String name = Util.readString("Informe o nome: ");
 		Double price = Util.readDouble("Informe o preço: ");
@@ -36,25 +36,25 @@ public class ProductController {
 
 	public List<Product> findAllProdutos() {
 		
-		List<Product> estoqueList = productService.readAll();
+		List<Product> stockList = productService.readAll();
 		
-		for (Product produto : estoqueList) {
-			System.out.println(produto);
+		for (Product product : stockList) {
+			System.out.println(product);
 		}
 		
-		return estoqueList;
+		return stockList;
 		
 	}
 
-	public void updateEstoque() {
+	public void updateStock() {
 		
 		Integer SKU = Util.readInteger("Informe o SKU do produto a ser alterado: ");
 		
-		Integer quantidade = Util.readInteger("Informe a quantidade do produto a ser alterado: ");
+		Integer quantity = Util.readInteger("Informe a quantidade do produto a ser alterado: ");
 		
-		Integer qtdEmEstoque = productService.stockChange(SKU, quantidade);
+		Integer quantityInStock = productService.stockChange(SKU, quantity);
 		
-		System.out.println("Produto atualizado com sucesso!  O nosso estoque agora tem " +  qtdEmEstoque + " peças do produto.");
+		System.out.println("Produto atualizado com sucesso!  O nosso estoque agora tem " +  quantityInStock + " peças do produto.");
 		
 	}
 

@@ -65,7 +65,7 @@ public class TransactionService {
 					break;
 				}
 
-				System.out.println(PaymentMethod.DEBIT.getDescription());
+				System.out.println(PaymentMethod.DEBITCARD.getDescription());
 
 				break;
 			case 3:
@@ -88,7 +88,7 @@ public class TransactionService {
 					break;
 				}
 
-				System.out.println(PaymentMethod.CREDIT.getDescription());
+				System.out.println(PaymentMethod.CREDITCARD.getDescription());
 				
 			case 4:
 
