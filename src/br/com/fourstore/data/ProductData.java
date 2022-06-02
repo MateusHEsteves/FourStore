@@ -5,18 +5,18 @@ import java.util.List;
 
 import br.com.fourstore.model.Product;
 
-	/**
-	 * 
-	 * @author mesteves
-	 *
-	 */
+/**
+ * 
+ * @author mesteves
+ *
+ */
 public class ProductData implements DaoInterface<Product> {
-	
+
 	/**
 	 * 
 	 */
 	static List<Product> stockProduct = new ArrayList<>();
-	
+
 	/**
 	 * 
 	 */
@@ -24,7 +24,7 @@ public class ProductData implements DaoInterface<Product> {
 	public void save(Product product) {
 		stockProduct.add(product);
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -32,21 +32,21 @@ public class ProductData implements DaoInterface<Product> {
 	public List<Product> findAll() {
 		return stockProduct;
 	}
-	
+
 	/**
 	 * 
 	 * @param sku
 	 * @return
 	 */
-	public Product findBySku(Integer sku) {
+	public Product findBySku(String sku) {
 		for (Product product : stockProduct) {
-			if (product.getSku() == sku) {
+			if (product.getSku().equals(sku)) {
 				return product;
 			}
 		}
 		return null;
 	}
-	
+
 	/**
 	 * 
 	 * @param product
@@ -55,7 +55,7 @@ public class ProductData implements DaoInterface<Product> {
 	public int getIndexOfProduto(Product product) {
 		return stockProduct.indexOf(product);
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -64,7 +64,7 @@ public class ProductData implements DaoInterface<Product> {
 		delete(product);
 		save(product);
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -77,22 +77,8 @@ public class ProductData implements DaoInterface<Product> {
 	 * 
 	 * @param sku
 	 */
-	public void deleteBySku(Integer sku) {
-		stockProduct.remove(getProdutoBySku(sku));
-	}
-	/**
-	 * 
-	 * @param sku
-	 * @return
-	 */
-	private Product getProdutoBySku(Integer sku) {
-		for (Product produto : stockProduct) {
-			if (produto.getSku() == sku) {
-				return produto;
-			}
-		}
-		return null;
+	public void deleteBySku(String sku) {
+		stockProduct.remove(findBySku(sku));
 	}
 
-	
 }

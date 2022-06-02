@@ -21,7 +21,7 @@ public class ProductService {
 		return db.findAll();
 	}
 	
-	public Integer stockChange(Integer sku, Integer quantidade) {
+	public Integer stockChange(String sku, Integer quantidade) {
 		
 		Product produto = db.findBySku(sku);
 		
@@ -41,7 +41,7 @@ public class ProductService {
 		
 	}
 
-	public Product readBySku(Integer sku) {
+	public Product readBySku(String sku) {
 		return db.findBySku(sku);		
 	}
 	

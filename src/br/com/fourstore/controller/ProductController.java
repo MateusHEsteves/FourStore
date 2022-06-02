@@ -1,18 +1,20 @@
 package br.com.fourstore.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import br.com.fourstore.enums.CategoryProduct;
+import br.com.fourstore.enums.ColorsProduct;
+import br.com.fourstore.enums.DepartmentEnum;
+import br.com.fourstore.enums.Size;
+import br.com.fourstore.enums.TypeProduct;
 import br.com.fourstore.model.Product;
 import br.com.fourstore.service.ProductService;
-import br.com.fourstore.service.TransactionService;
 import util.Util;
 
 public class ProductController {
-	
+
 	ProductService productService = new ProductService();
-	
+
 	/**
 	 * Cadastra um novo produto
 	 */
@@ -20,90 +22,50 @@ public class ProductController {
 
 		String name = Util.readString("Informe o nome: ");
 		Double price = Util.readDouble("Informe o preço: ");
-		String size = Util.readString("Informe o tamanho: ");
-		String color = Util.readString("Informe a cor: ");
+		Size size = Size.G00.menuSize();
+		ColorsProduct color = ColorsProduct.BLACK.menuColors();
 		Integer quantity = Util.readInteger("Informe a quantidade: ");
-		String type = Util.readString("Informe o tipo: ");
+		TypeProduct type = TypeProduct.AUTUMN.menuType();
 		String description = Util.readString("Informe a descrição: ");
-		String category = Util.readString("Informe a categoria: ");
-		String department = Util.readString("Informe o departamento: ");
+		CategoryProduct category = CategoryProduct.BABY.menuCategories();
+		DepartmentEnum department = DepartmentEnum.ACCESSORIES.menuDepartment();
 
-		Product product = new Product(name, price, size, color, quantity, type, description, category,	department);
+		Product product = new Product(name, price, size, color, quantity, type, description, category, department);
 
 		productService.create(product);
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public List<Product> findAllProdutos() {
-		
+
 		List<Product> stockList = productService.readAll();
-		
+
 		for (Product product : stockList) {
 			System.out.println(product);
 		}
-		
+
 		return stockList;
-		
+
 	}
 
-	public void updateStock() {
-		
-		Integer SKU = Util.readInteger("Informe o SKU do produto a ser alterado: ");
-		
-		Integer quantity = Util.readInteger("Informe a quantidade do produto a ser alterado: ");
-		
-		Integer quantityInStock = productService.stockChange(SKU, quantity);
-		
-		System.out.println("Produto atualizado com sucesso!  O nosso estoque agora tem " +  quantityInStock + " peças do produto.");
-		
-	}
-
-	/*
-	 * Cria um carrinho de compras
-	 * Define a forma de pagamento
-	 * Pergunta se deseja cpf na nota
-	 * Imprime o recibo de pagamento
+	/**
+	 * 
 	 */
-	public void sellProduct() {
+	public void updateStock() {
 
-		Map<Product, Integer> cart = new HashMap<>();
-		
-		Integer option = 1;
+		String SKU = Util.readString("Informe o SKU do produto a ser alterado: ");
 
-		while (option == 1) {
+		Integer quantity = Util.readInteger("Informe a quantidade do produto a ser alterado: ");
 
-			Integer SKU = Util.readInteger("Informe o SKU do produto a ser vendido: ");
-			
-			Integer quantity = Util.readInteger("Quantidade de produto a ser vendido: ");
+		Integer quantityInStock = productService.stockChange(SKU, quantity);
 
-			option = Util.readInteger("Deseja comprar mais produtos? 1 - sim / 2 - Não.");
-
-			cart.put(productService.readBySku(SKU), quantity);
-
-		}
-
-		TransactionService.selectPaymentType();
-		
-		Integer cpf = null;
-		
-		option = Util.readInteger("Deseja CPF na nota? 1 - Sim / 2 - Não");
-		
-			if (option == 1) {
-				cpf = Util.readInteger("Informe o CPF: ");
-			}
-			
-			printReceipt(cpf);
+		System.out.println(
+				"Produto atualizado com sucesso!  O nosso estoque agora tem " + quantityInStock + " peças do produto.");
 
 	}
 
-	private void printReceipt(Integer cpf) {
-		
-		
-	}
-
-	public void showHistory() {
-		// TODO Auto-generated method stub
-		
-	}
-	
 }

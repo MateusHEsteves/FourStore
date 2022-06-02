@@ -24,28 +24,28 @@ public class InicializeDb {
 				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
 		Product product2 = new Product("Calça", 100.00, Size.G00, ColorsProduct.BROWN, 30, TypeProduct.SUMMER,
-				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
+				"Calça Jogger social", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
 		Product product3 = new Product("Cueca", 20.00, Size.G00, ColorsProduct.WHITE, 20, TypeProduct.SUMMER,
-				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
+				"Cueca de microfibra", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
 		Product product4 = new Product("Meia", 10.00, Size.P00, ColorsProduct.BLACK, 10, TypeProduct.SUMMER,
-				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
+				"Meia soquete", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
 		Product product5 = new Product("Blusa", 40.00, Size.M00, ColorsProduct.BLUE, 40, TypeProduct.SUMMER,
-				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
+				"Blusa com estampa de caveira", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
 		Product product6 = new Product("Blusa", 40.00, Size.P00, ColorsProduct.RED, 60, TypeProduct.SUMMER,
-				"Moletom com estampa do capitão américa", CategoryProduct.FEMININE, DepartmentEnum.CLOTHES);
+				"Blusa com estampa floral", CategoryProduct.FEMININE, DepartmentEnum.CLOTHES);
 
 		Product product7 = new Product("Calça Moletom", 80.00, Size.G00, ColorsProduct.BLACK, 80, TypeProduct.WINTER,
-				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
+				"Calça de moletom lisa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
 		Product product8 = new Product("Camisa Social", 90.00, Size.M00, ColorsProduct.WHITE, 90, TypeProduct.SUMMER,
-				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
+				"Camisa social para terno masculino", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
 		Product product9 = new Product("Camisa Social", 70.00, Size.P00, ColorsProduct.WHITE, 70, TypeProduct.SUMMER,
-				"Moletom com estampa do capitão américa", CategoryProduct.FEMININE, DepartmentEnum.CLOTHES);
+				"Camisa social para terno feminino", CategoryProduct.FEMININE, DepartmentEnum.CLOTHES);
 		
 		Product product10 = new Product("Bermuda", 50.00, Size.GG0, ColorsProduct.BLACK, 10, TypeProduct.SUMMER,
 				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);

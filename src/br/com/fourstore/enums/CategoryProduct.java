@@ -1,5 +1,7 @@
 package br.com.fourstore.enums;
 
+import util.Util;
+
 public enum CategoryProduct {
 	
 	MALE("MS - Masculino", "M"),
@@ -10,6 +12,7 @@ public enum CategoryProduct {
 	
 	private String description;
 	private String SKUCode;
+	private CategoryProduct[] cp = CategoryProduct.values();
 
 	private CategoryProduct(String description, String SKUCode) {
 		this.description = description;
@@ -22,5 +25,20 @@ public enum CategoryProduct {
 
 	public String getDescription() {
 		return description;
+	}
+	
+	public CategoryProduct menuCategories() {
+		System.out.println("╔══════════════════════════════════════════╗");
+		System.out.println("║               × Categorias ×             ║");
+		System.out.println("╠══════════════════════════════════════════╣");
+		System.out.println("║ » 1 - Masculino                          ║");
+		System.out.println("║ » 2 - Feminino                           ║");
+		System.out.println("║ » 3 - Baby                               ║");
+		System.out.println("║ » 4 - Outros                             ║");
+		System.out.println("╚══════════════════════════════════════════╝");
+		System.out.print("  » ");
+		Integer opcao = Util.readInteger(1,4);
+		
+		return cp[--opcao];
 	}
 }

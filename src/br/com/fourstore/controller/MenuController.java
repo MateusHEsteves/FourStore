@@ -40,10 +40,10 @@ public class MenuController {
 				productController.findAllProdutos();
 				continue;
 			case 4:
-				productController.sellProduct();
+				transactionController.sellProduct();
 				continue;
 			case 5:
-				productController.showHistory();
+				transactionController.showHistory();
 			default:
 				break menu;
 			}

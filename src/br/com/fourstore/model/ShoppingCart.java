@@ -4,14 +4,32 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 
+ * @author mesteves
+ *
+ */
 public class ShoppingCart {
-
+	
+	/**
+	 * 
+	 */
 	private Map<Product, Integer> cart;
-
+	
+	/**
+	 * 
+	 */
 	public ShoppingCart() {
 		this.cart = new HashMap<>();
 	}
+	
+	public void add(Product product, Integer quantity) {
+		cart.put(product, quantity);
+	}
 
+	/**
+	 * 
+	 */
 	public void listProduct() {
 		
 		for (Map.Entry<Product, Integer> productList : this.cart.entrySet()) {
@@ -26,6 +44,10 @@ public class ShoppingCart {
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public BigDecimal subTotalValue() {
 		
 		BigDecimal subTotal = new BigDecimal(0);
