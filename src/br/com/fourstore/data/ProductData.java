@@ -44,6 +44,7 @@ public class ProductData implements DaoInterface<Product> {
 				return product;
 			}
 		}
+		System.err.println("Produto não encontrado!");
 		return null;
 	}
 

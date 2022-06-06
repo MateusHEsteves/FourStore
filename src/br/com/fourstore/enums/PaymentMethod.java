@@ -4,23 +4,29 @@ import util.Util;
 
 public enum PaymentMethod {
 	
-	MONEY("Pagamento no dinheiro realizado com sucesso!"), 
-	DEBITCARD("Pagamento no débito realizado com sucesso!"), 
-	CREDITCARD("Pagamento no crédito realizado com sucesso!"), 
-	PIX("Pagamento no PIX realizado com sucesso!");
+	MONEY("Dinheiro","Pagamento no dinheiro realizado com sucesso!"), 
+	DEBITCARD("Cartão de débito","Pagamento no dÃ©bito realizado com sucesso!"), 
+	CREDITCARD("Cartão de crédito","Pagamento no crÃ©dito realizado com sucesso!"), 
+	PIX("Pix","Pagamento no PIX realizado com sucesso!");
 
+	private String name;
 	private String description;
-	private PaymentMethod[] pm = PaymentMethod.values();
+	static PaymentMethod[] pm = PaymentMethod.values();
 	
-	PaymentMethod(String description) {
+	PaymentMethod(String name, String description) {
+		this.name = name;
 		this.description = description;
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 
 	public String getDescription() {
 		return description;
 	}
 	
-	public PaymentMethod menuPaymentMethod() {
+	public static PaymentMethod menuPaymentMethod() {
 		System.out.println("╔══════════════════════════════════════════╗");
 		System.out.println("║          × Métodos de pagamento ×        ║");
 		System.out.println("╠══════════════════════════════════════════╣");

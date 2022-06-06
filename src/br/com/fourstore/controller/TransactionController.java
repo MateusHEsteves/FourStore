@@ -1,13 +1,16 @@
 package br.com.fourstore.controller;
 
+import java.util.Map.Entry;
+
 import br.com.fourstore.enums.PaymentMethod;
+import br.com.fourstore.model.Product;
 import br.com.fourstore.model.Transaction;
 import br.com.fourstore.service.ProductService;
 import br.com.fourstore.service.TransactionService;
 import util.Util;
-import util.UtilValidacao;
+import util.Validacao;
 
-public class TransactionController {
+public class TransactionController implements Validacao {
 	
 	TransactionService transactionService;
 	
@@ -28,20 +31,36 @@ public class TransactionController {
 
 		transaction = selectPaymentType(transaction);
 
-		String cpf;
+		String cpf = Util.readString("Deseja CPF na nota? Se sim digite seu cpf, se não aperte ENTER:");
 
-		do {
+		if(!cpf.isBlank()) {
+			while (validaCPF(cpf)) {
+				cpf = Util.readString("Inválido, tente novamente: ");
+			}
 
-			cpf = Util.readString("Deseja CPF na nota? Se sim digite seu cpf, se não aperte ENTER:");
-			
-		} while (UtilValidacao.validaCPF(cpf));
-
+		}
+		
 		transaction.setCpf(cpf);
 
-		printReceipt(transaction);
-
+		checkout(transaction);
+		
 		transactionService.create(transaction);
 
+		printReceipt(transaction);
+		
+	}
+
+	private void checkout(Transaction transaction) {
+
+		for (Entry<Product, Integer> cart : transaction.getShoppingCart().getCart().entrySet()) {
+			
+			Product produto = cart.getKey();
+			Integer quantidade = cart.getValue();
+			
+			productService.stockMinus(produto.getSku(), quantidade);
+			
+		}
+		
 	}
 
 	private Transaction addProductsToCart() {
@@ -50,18 +69,18 @@ public class TransactionController {
 
 		do {
 
-			String SKU = Util.readString("Informe o SKU do produto a ser vendido: ");
-			Integer quantity = Util.readInteger("Quantidade de produto a ser vendido: ");
+			String SKU = Util.readString("  » Informe o SKU do produto a ser vendido: ");
+			Integer quantity = Util.readInteger("  » Quantidade de produto a ser vendido: ");
 
 			transaction.getShoppingCart().add(productService.readBySku(SKU), quantity);
 
-		} while (Util.readInteger("Deseja comprar mais produtos? 1 - sim / 2 - Não.") == 1);
+		} while (Util.readInteger("  » Deseja comprar mais produtos? 1 - SIM / 2 - NÃO: ") == 1);
 
 		return transaction;
 	}
 
 	private void printReceipt(Transaction transaction) {
-
+		System.out.println(transaction);
 	}
 
 	public void showHistory() {
@@ -76,7 +95,7 @@ public class TransactionController {
 
 		Integer option;
 
-		PaymentMethod paymentMethod = PaymentMethod.CREDITCARD.menuPaymentMethod();
+		PaymentMethod paymentMethod = PaymentMethod.menuPaymentMethod();
 
 		switch (paymentMethod) {
 		case MONEY:
@@ -88,15 +107,15 @@ public class TransactionController {
 
 			while (true) {
 
-				String titularName = Util.readString("Informe o nome do titular: ");
+				String titularName = Util.readString("  » Informe o nome do titular: ");
 
-				Integer numberCard = Util.readInteger("Informe o número do cartão: ");
+				Integer numberCard = Util.readInteger("  » Informe o número do cartão: ");
 
-				Integer numberCvv = Util.readInteger("Informe o número do cvv: ");
+				Integer numberCvv = Util.readInteger("  » Informe o número do cvv: ");
 
 				System.out.println("Nome: " + titularName + ", " + numberCard + ", " + numberCvv + ".");
 
-				option = Util.readInteger("Os dados acima estão corretos? 1 - Sim / 2 - Não.");
+				option = Util.readInteger("  » Os dados acima estão corretos? 1 - Sim / 2 - Não.");
 
 				if (option == 2) {
 					continue;
@@ -111,15 +130,15 @@ public class TransactionController {
 
 			while (true) {
 
-				String titularName = Util.readString("Informe o nome do titular: ");
+				String titularName = Util.readString("  » Informe o nome do titular: ");
 
-				Integer numberCard = Util.readInteger("Informe o número do cartão: ");
+				Integer numberCard = Util.readInteger("  » Informe o número do cartão: ");
 
-				Integer numberCvv = Util.readInteger("Informe o número do cvv: ");
+				Integer numberCvv = Util.readInteger("  » Informe o número do cvv: ");
 
 				System.out.println("Nome: " + titularName + ", " + numberCard + ", " + numberCvv + ".");
 
-				option = Util.readInteger("Os dados acima estão corretos? 1 - Sim / 2 - Não.");
+				option = Util.readInteger("  » Os dados acima estão corretos? 1 - Sim / 2 - Não.");
 
 				if (option == 2) {
 					continue;
@@ -163,6 +182,9 @@ public class TransactionController {
 		default:
 			break;
 		}
+		
+		transaction.setMetodoDePagamento(paymentMethod);
+		
 		return transaction;
 	}
 		

@@ -4,19 +4,24 @@ import util.Util;
 
 public enum DepartmentEnum {
 	
+	
 	CLOTHES("vestuário", "CLO"),
 	SHOES("Calçados", "SHO"),
-	PERFUMERY("Perfumária", "PER"),
-	ACCESSORIES("Acessórios", "ACC");
+	PERFUMERY("PerfumÃ¡ria", "PER"),
+	ACCESSORIES("AcessÃ³rios", "ACC");
 
 	private String description;
 	private String SKUCode;
-	DepartmentEnum[] dp = DepartmentEnum.values();
+	static DepartmentEnum[] dp = DepartmentEnum.values();
 	
 	DepartmentEnum(String description2, String SKUCode) {	
 		this.description = description2;
 		this.SKUCode = SKUCode;
 		
+	}
+	
+	public void setSKUCode(String sKUCode) {
+		SKUCode = sKUCode;
 	}
 
 	public String getDescription() {
@@ -27,7 +32,7 @@ public enum DepartmentEnum {
 		return SKUCode;
 	}
 	
-	public DepartmentEnum menuDepartment() {
+	public static DepartmentEnum menuDepartment() {
 		System.out.println("╔══════════════════════════════════════════╗");
 		System.out.println("║             × Departamentos ×            ║");
 		System.out.println("╠══════════════════════════════════════════╣");

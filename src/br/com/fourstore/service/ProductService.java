@@ -21,7 +21,7 @@ public class ProductService {
 		return db.findAll();
 	}
 	
-	public Integer stockChange(String sku, Integer quantidade) {
+	public Integer stockPlus(String sku, Integer quantidade) {
 		
 		Product produto = db.findBySku(sku);
 		
@@ -29,11 +29,22 @@ public class ProductService {
 			return null;
 		}
 		
-		if (produto.getQuantity() + quantidade < 0) {
-			return null;
-		}
-		
 		produto.setQuantity(produto.getQuantity() + quantidade);
+		
+		db.update(produto);
+		
+		return produto.getQuantity();
+		
+	}
+	public Integer stockMinus(String sku, Integer quantidade) {
+		
+		Product produto = db.findBySku(sku);
+		
+		if (produto == null) return null;
+		
+		if (produto.getQuantity() - quantidade < 0) return null;
+		
+		produto.setQuantity((produto.getQuantity() - quantidade));
 		
 		db.update(produto);
 		

@@ -39,12 +39,20 @@ public class Util {
 	
 	public static Double readDouble(String mensagem) {
 		System.out.print(mensagem);
-		Double retorno = Double.parseDouble(scanner.nextLine());
+		Double retorno = Double.parseDouble(scanner.nextLine().replace(',', '.'));
 		return retorno;
 	}
 	
 	public static Double readDouble() {
-		Double retorno = Double.parseDouble(scanner.nextLine());
+		Double retorno = Double.parseDouble(scanner.nextLine().replace(',', '.'));
+		return retorno;
+	}
+
+	public static String repeat(int i) {
+		String retorno = "";
+		for (int qtd = i; qtd > 0 ; qtd--) {
+			retorno.concat(" ");
+		}
 		return retorno;
 	}
 

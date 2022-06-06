@@ -10,21 +10,46 @@ import util.Util;
 public class MenuController {
 
 	ProductController productController = new ProductController();
-	
+
 	TransactionController transactionController = new TransactionController();
 
 	InicializeDb startDb = new InicializeDb();
 
 	public MenuController(String opcao) {
-		System.out.println("Programa foi inicializado pela " + opcao + "ª opção.");
+		System.err.println("╔══════════════════════════════════════════╗");
+		System.err.println("║ Programa inicializado pela " + opcao + "ª opção.     ║");
+		System.err.println("╚══════════════════════════════════════════╝");
 		inicializeMenu();
 	}
 
 	/**
+	 * Exibe menu inicial da aplicação no console e solicita uma entrada do tipo
+	 * inteiro usando o Scanner e retorna essa entrada.
 	 * 
+	 * @return Integer opçao selecionada pelo usuário do sistema no console.
+	 */
+	public Integer menuPrincipal() {
+		System.out.println("╔══════════════════════════════════════════╗");
+		System.out.println("║             × Menu Inicial ×             ║");
+		System.out.println("╠══════════════════════════════════════════╣");
+		System.out.println("║ » 1 - Cadastrar Produto                  ║");
+		System.out.println("║ » 2 - Atualizar Estoque                  ║");
+		System.out.println("║ » 3 - Listar Estoque                     ║");
+		System.out.println("║ » 4 - Comprar Produto                    ║");
+		System.out.println("║ » 5 - Exibir Histórico                   ║");
+		System.out.println("╠══════════════════════════════════════════╣");
+		System.out.println("║ » 0 - Sair Sistema                       ║");
+		System.out.println("╚══════════════════════════════════════════╝");
+		System.out.print("  » ");
+		Integer opcao = Util.readInteger();
+		return opcao;
+	}
+
+	/**
+	 * Switch case que controla o fluxo do usuário no menu inicial.
 	 */
 	private void inicializeMenu() {
-		
+
 		menu: while (true) {
 
 			Integer opcao = menuPrincipal();
@@ -44,33 +69,16 @@ public class MenuController {
 				continue;
 			case 5:
 				transactionController.showHistory();
-			default:
+				continue;
+			case 0:
 				break menu;
+			default:
+				System.err.println("╔══════════════════════════════════════════╗");
+				System.err.println("║ » Opção inválida, tente novamente!       ║");
+				System.err.println("╚══════════════════════════════════════════╝");
+				continue;
 			}
 		}
-	}
-
-	/**
-	 * Exibe um menu no console e solicita uma entrada do tipo inteiro usando o
-	 * Scanner e retorna essa entrada.
-	 * 
-	 * @return Integer inputado pelo usuário do sistema.
-	 */
-	public Integer menuPrincipal() {
-		System.out.println("╔══════════════════════════════════════════╗");
-		System.out.println("║             × Menu Inicial ×             ║");
-		System.out.println("╠══════════════════════════════════════════╣");
-		System.out.println("║ » 1 - Cadastrar Produto                  ║");
-		System.out.println("║ » 2 - Atualizar Estoque                  ║");
-		System.out.println("║ » 3 - Listar Estoque                     ║");
-		System.out.println("║ » 4 - Comprar Produto                    ║");
-		System.out.println("║ » 5 - Exibir Histórico                   ║");
-		System.out.println("╠══════════════════════════════════════════╣");
-		System.out.println("║ » 0 - Sair Sistema                       ║");
-		System.out.println("╚══════════════════════════════════════════╝");
-		System.out.print("  » ");
-		Integer opcao = Util.readInteger();
-		return opcao;
 	}
 
 }

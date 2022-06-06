@@ -1,6 +1,8 @@
 package br.com.fourstore.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 import br.com.fourstore.enums.PaymentMethod;
 
@@ -14,7 +16,7 @@ public class Transaction {
 	/**
 	 * 
 	 */
-	private Long id;
+	private UUID id;
 	private String cpf;
 	private PaymentMethod metodoDePagamento;
 	private LocalDate dataDeTransacao;
@@ -24,6 +26,8 @@ public class Transaction {
 	 * 
 	 */
 	public Transaction() {
+		this.id = UUID.randomUUID();
+		this.dataDeTransacao =  LocalDate.now();
 		this.shoppingCart = new ShoppingCart();
 	}
 	
@@ -31,7 +35,7 @@ public class Transaction {
 	 * 
 	 * @return
 	 */
-	public Long getId() {
+	public UUID getId() {
 		return id;
 	}
 	
@@ -39,7 +43,7 @@ public class Transaction {
 	 * 
 	 * @param id
 	 */
-	public void setId(Long id) {
+	public void setId(UUID id) {
 		this.id = id;
 	}
 		
@@ -101,8 +105,13 @@ public class Transaction {
 	
 	@Override
 	public String toString() {
-		return "Transação id=" + id + ((cpf.isBlank())? "" : "cpf=" + cpf) + ", metodoDePagamento = " + metodoDePagamento + ", dataDeTransacao = "
-				+ dataDeTransacao + ", valor Total = " + shoppingCart.subTotalValue() + "]";
+		return 	"\n  » ID DA TRANSAÇÃO: " + id + "\n" 
+			+   ((cpf.isBlank())? "" : "  » CPF/CNPJ: " + cpf + "\n") 
+			+   "  » MÉTODO DE PAGAMENTO: " + metodoDePagamento.getName() + "\n" 
+			+   "  » DATA DA TRANSAÇÃO: "+ dataDeTransacao.format(DateTimeFormatter.ofPattern("dd/MM/YYYY")) +  "\n"
+		  	+   "  » VALOR TOTAL: R$" + shoppingCart.subTotalValue();
 	}
 
 }
+
+	

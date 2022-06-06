@@ -1,6 +1,5 @@
 package br.com.fourstore.model;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,6 +22,12 @@ public class ShoppingCart {
 		this.cart = new HashMap<>();
 	}
 	
+	public Map<Product, Integer> getCart() {
+		return cart;
+	}
+
+
+
 	public void add(Product product, Integer quantity) {
 		cart.put(product, quantity);
 	}
@@ -48,16 +53,16 @@ public class ShoppingCart {
 	 * 
 	 * @return
 	 */
-	public BigDecimal subTotalValue() {
+	public Double subTotalValue() {
 		
-		BigDecimal subTotal = new BigDecimal(0);
+		Double subTotal = 0.0;
 		
 		for (Map.Entry<Product, Integer> productList : this.cart.entrySet()) {
 
 			Product product = productList.getKey();
 			Integer quantity = productList.getValue();
 			
-			subTotal.add(new BigDecimal(product.getPrice() * quantity));
+			subTotal += product.getPrice() * quantity;
 		}
 		
 		return subTotal;

@@ -10,8 +10,6 @@ import br.com.fourstore.model.Product;
 
 public class InicializeDb {
 	
-	
-	
 	public InicializeDb() {
 		inicializeDB();
 	}
@@ -23,16 +21,16 @@ public class InicializeDb {
 		Product product1 = new Product("Moletom", 100.00, Size.GG0, ColorsProduct.GREEN, 50, TypeProduct.WINTER,
 				"Moletom com estampa do capitão américa", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
-		Product product2 = new Product("Calça", 100.00, Size.G00, ColorsProduct.BROWN, 30, TypeProduct.SUMMER,
-				"Calça Jogger social", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
+		Product product2 = new Product("Bracelete", 100.00, Size.M00, ColorsProduct.WHITE, 30, TypeProduct.AUTUMN,
+				"Calça Jogger social", CategoryProduct.FEMININE, DepartmentEnum.ACCESSORIES);
 		
 		Product product3 = new Product("Cueca", 20.00, Size.G00, ColorsProduct.WHITE, 20, TypeProduct.SUMMER,
 				"Cueca de microfibra", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
-		Product product4 = new Product("Meia", 10.00, Size.P00, ColorsProduct.BLACK, 10, TypeProduct.SUMMER,
+		Product product4 = new Product("Meia", 10.00, Size.P00, ColorsProduct.BLACK, 10, TypeProduct.SPRING,
 				"Meia soquete", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
-		Product product5 = new Product("Blusa", 40.00, Size.M00, ColorsProduct.BLUE, 40, TypeProduct.SUMMER,
+		Product product5 = new Product("Blusa", 40.00, Size.M00, ColorsProduct.BLUE, 40, TypeProduct.AUTUMN,
 				"Blusa com estampa de caveira", CategoryProduct.MALE, DepartmentEnum.CLOTHES);
 		
 		Product product6 = new Product("Blusa", 40.00, Size.P00, ColorsProduct.RED, 60, TypeProduct.SUMMER,

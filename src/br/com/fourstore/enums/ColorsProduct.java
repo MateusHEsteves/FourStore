@@ -15,13 +15,12 @@ public enum ColorsProduct {
 	
 	private String description;
 	private String SKUCode;
-	private ColorsProduct[] cp = ColorsProduct.values();
+	static ColorsProduct[] cp = ColorsProduct.values();
 
 	private ColorsProduct(String description, String SKUCode) {
 		this.description = description;
 		this.SKUCode = SKUCode;
 	}
-	
 	
 	public String getDescription() {
 		return description;
@@ -31,7 +30,7 @@ public enum ColorsProduct {
 		return SKUCode;
 	}
 	
-	public ColorsProduct menuColors() {
+	public static ColorsProduct menuColors() {
 		System.out.println("╔══════════════════════════════════════════╗");
 		System.out.println("║               × Categorias ×             ║");
 		System.out.println("╠══════════════════════════════════════════╣");

@@ -20,15 +20,15 @@ public class ProductController {
 	 */
 	public void registerProduct() {
 
-		String name = Util.readString("Informe o nome: ");
-		Double price = Util.readDouble("Informe o preço: ");
-		Size size = Size.G00.menuSize();
-		ColorsProduct color = ColorsProduct.BLACK.menuColors();
-		Integer quantity = Util.readInteger("Informe a quantidade: ");
-		TypeProduct type = TypeProduct.AUTUMN.menuType();
-		String description = Util.readString("Informe a descrição: ");
-		CategoryProduct category = CategoryProduct.BABY.menuCategories();
-		DepartmentEnum department = DepartmentEnum.ACCESSORIES.menuDepartment();
+		String name = Util.readString("  » Informe o nome do produto: ");
+		String description = Util.readString("  » Informe a descrição: ");
+		Double price = Util.readDouble("  » Informe o preço: ");
+		Integer quantity = Util.readInteger("  » Informe a quantidade: ");
+		Size size = Size.menuSize();
+		ColorsProduct color = ColorsProduct.menuColors();
+		TypeProduct type = TypeProduct.menuType();
+		CategoryProduct category = CategoryProduct.menuCategories();
+		DepartmentEnum department = DepartmentEnum.menuDepartment();
 
 		Product product = new Product(name, price, size, color, quantity, type, description, category, department);
 
@@ -57,11 +57,20 @@ public class ProductController {
 	 */
 	public void updateStock() {
 
-		String SKU = Util.readString("Informe o SKU do produto a ser alterado: ");
+		String SKU = Util.readString("  » Informe o SKU do produto a ser alterado: ");
 
-		Integer quantity = Util.readInteger("Informe a quantidade do produto a ser alterado: ");
+		Integer quantity = Util.readInteger("  » Informe a quantidade do produto a ser alterado: ");
 
-		Integer quantityInStock = productService.stockChange(SKU, quantity);
+		String stockChange = Util.readString("  » Informe o tipo e atualização (+/-): ");
+		
+		Integer quantityInStock;
+		
+		if(stockChange.equals("+")) {
+			quantityInStock = productService.stockPlus(SKU, quantity);
+		} else {
+			quantityInStock = productService.stockMinus(SKU, quantity);
+		}
+		
 
 		System.out.println(
 				"Produto atualizado com sucesso!  O nosso estoque agora tem " + quantityInStock + " peças do produto.");

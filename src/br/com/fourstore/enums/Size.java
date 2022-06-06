@@ -3,19 +3,13 @@ package br.com.fourstore.enums;
 import util.Util;
 
 public enum Size {
-	
-	RN0("Rescem Nascido", "RN0" ), 
-	PP0("Extra Pequeno", "PP0"), 
-	P00("Pequeno", "P00"), 
-	M00("Médio", "M00"), 
-	G00("Grande", "G00"), 
-	GG0("GG", "GG0"), 
-	XG0("Extra Grande", "XG0"),
-	XXG("Extra Extra Grande", "XXG");
+
+	RN0("Recem Nascido", "RN0"), PP0("Extra Pequeno", "PP0"), P00("Pequeno", "P00"), M00("MÃ©dio", "M00"),
+	G00("Grande", "G00"), GG0("GG", "GG0"), XG0("Extra Grande", "XG0"), XXG("Extra Extra Grande", "XXG");
 
 	private String description;
 	private String SKUCode;
-	private Size[] sz = Size.values();
+	static Size[] sz = Size.values();
 
 	Size(String description, String SKUCode) {
 		this.description = description;
@@ -30,7 +24,7 @@ public enum Size {
 		return description;
 	}
 	
-	public Size menuSize() {
+	public static Size menuSize() {
 		System.out.println("╔══════════════════════════════════════════╗");
 		System.out.println("║           × Seleção de tamanho ×         ║");
 		System.out.println("╠══════════════════════════════════════════╣");
@@ -44,9 +38,9 @@ public enum Size {
 		System.out.println("║ » 8 - Extra Extra Grande                 ║");
 		System.out.println("╚══════════════════════════════════════════╝");
 		System.out.print("  » ");
-		Integer opcao = Util.readInteger(1,8);
+		Integer option = Util.readInteger(1,8);
 		
-		return sz[--opcao];
+		return sz[--option];
 	}
-	
+
 }

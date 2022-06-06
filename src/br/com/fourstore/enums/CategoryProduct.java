@@ -12,8 +12,8 @@ public enum CategoryProduct {
 	
 	private String description;
 	private String SKUCode;
-	private CategoryProduct[] cp = CategoryProduct.values();
-
+	static CategoryProduct[] cp = CategoryProduct.values();
+	
 	private CategoryProduct(String description, String SKUCode) {
 		this.description = description;
 		this.SKUCode = SKUCode;
@@ -27,7 +27,7 @@ public enum CategoryProduct {
 		return description;
 	}
 	
-	public CategoryProduct menuCategories() {
+	public static CategoryProduct menuCategories() {
 		System.out.println("╔══════════════════════════════════════════╗");
 		System.out.println("║               × Categorias ×             ║");
 		System.out.println("╠══════════════════════════════════════════╣");

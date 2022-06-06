@@ -9,7 +9,7 @@ public enum TypeProduct {
 
 	private String description;
 	private String SKUCode;
-	private TypeProduct[] tp = TypeProduct.values();
+	static TypeProduct[] tp = TypeProduct.values();
 
 	TypeProduct(String description, String SKUCode) {
 		this.description = description;
@@ -24,7 +24,7 @@ public enum TypeProduct {
 		return description;
 	}
 
-	public TypeProduct menuType() {
+	public static TypeProduct menuType() {
 
 		System.out.println("╔══════════════════════════════════════════╗");
 		System.out.println("║           × Seleção de tamanho ×         ║");
